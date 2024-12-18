@@ -3,6 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Home } from './pages/Home';
 import { BrowserRouter, Routes, Route } from "react-router";
 import NotFound from './pages/NotFound';
+import { Login } from './pages/Auth/Login';
 function App() {
   const notify = () => toast('Here is your toast.');
   return (
@@ -29,6 +30,13 @@ function App() {
               <Home notify={notify}/>
             } 
           />
+          <Route 
+            path="/login" 
+            element={
+              <Login/>
+            } 
+          />
+          
           <Route
             path='*'
             element={
