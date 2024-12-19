@@ -4,9 +4,12 @@ import { Home } from './pages/Home';
 import { BrowserRouter, Routes, Route } from "react-router";
 import NotFound from './pages/NotFound';
 import { Login } from './pages/Auth/Login';
+import WelcomeModal from './components/WelcomeModal';
+import { useAppContext } from './context/AppContext';
 
 function App() {
   const notify = () => toast('Here is your toast.');
+  const {isDialogOpen, setIsDialogOpen} = useAppContext();
   return (
     <>
       <Toaster 
@@ -46,6 +49,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <WelcomeModal isDialogOpen={isDialogOpen} setIsDialogOpen={setIsDialogOpen} />
             
     </>
   )

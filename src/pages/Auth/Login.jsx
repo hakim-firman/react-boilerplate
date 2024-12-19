@@ -10,15 +10,19 @@ import {
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button'
+import { useAppContext } from '@/context/AppContext'
 
 
 export const Login = () => {
+  const{user}=useAppContext()
   return (
     <div className="flex flex-col gap-4 items-center justify-center w-full h-screen">
+      <p>Hello{user ? " " + user : '....'}, let&apos;s start your journey with us.</p>
+
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Login Form</CardTitle>
-          <CardDescription>Please enter Your Email And Password</CardDescription>
+          <CardDescription>Please enter your email and password</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-2">
@@ -30,14 +34,12 @@ export const Login = () => {
               <Label htmlFor="password">Password</Label>
               <Input type="password" id="password" placeholder="Password" />
             </div>        
-
           </div>
         </CardContent>
         <CardFooter className="justify-end">
           <Button className="brutalism brutalism-active">Login</Button>
         </CardFooter>
       </Card>
-
     </div>
   )
 }
