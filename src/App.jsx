@@ -4,6 +4,7 @@ import { Home } from './pages/Home';
 import { BrowserRouter, Routes, Route } from "react-router";
 import NotFound from './pages/NotFound';
 import { Login } from './pages/Auth/Login';
+
 function App() {
   const notify = () => toast('Here is your toast.');
   return (
@@ -45,6 +46,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+            
     </>
   )
 }

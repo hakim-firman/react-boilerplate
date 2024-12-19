@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button'
 
 export const Login = () => {
   return (
-    <div className="flex flex-col gap-4 items-center justify-center w-full h-full">
+    <div className="flex flex-col gap-4 items-center justify-center w-full h-screen">
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Login Form</CardTitle>
