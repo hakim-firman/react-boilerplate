@@ -10,11 +10,11 @@ import {
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button'
-import { useAppContext } from '@/context/AppContext'
+import useAppStore from '@/stores/appStore'
 
 
 export const Login = () => {
-  const{user}=useAppContext()
+  const user = useAppStore(state => state.user)
   return (
     <div className="flex flex-col gap-4 items-center justify-center w-full h-screen">
       <p>Hello{user ? " " + user : '....'}, let&apos;s start your journey with us.</p>

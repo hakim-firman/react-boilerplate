@@ -1,10 +1,13 @@
 import { Button } from '@/components/ui/button'
 import WelcomeModal from '@/components/WelcomeModal'
 import { useAppContext } from '@/context/AppContext'
+import useModalStore from '@/stores/modalStore'
+import useAppStore from '@/stores/appStore'
 import { useEffect } from 'react'
 import { NavLink } from 'react-router'
 export const Home = ({notify}) => {
-const {user,isDialogOpen, setIsDialogOpen} = useAppContext();
+const openDialog = useModalStore(state => state.openDialog)
+const user=useAppStore(state => state.user)
 
   useEffect(() => {
     console.log('Looking for Bugs🐛')
@@ -19,7 +22,7 @@ const {user,isDialogOpen, setIsDialogOpen} = useAppContext();
             <NavLink to={'/login'}>
                 <Button className="brutalism brutalism-active">Login</Button>  
             </NavLink>
-            <Button className="brutalism brutalism-active" onClick={()=>setIsDialogOpen(true)}>Open Modal</Button>
+            <Button className="brutalism brutalism-active" onClick={()=>openDialog()}>Open Modal</Button>
           
           </div>
         

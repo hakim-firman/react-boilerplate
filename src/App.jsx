@@ -5,11 +5,11 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import NotFound from './pages/NotFound';
 import { Login } from './pages/Auth/Login';
 import WelcomeModal from './components/WelcomeModal';
-import { useAppContext } from './context/AppContext';
-
+import useAppStore from './stores/appStore';
 function App() {
-  const notify = () => toast('Here is your toast.');
-  const {isDialogOpen, setIsDialogOpen} = useAppContext();
+  const user = useAppStore(state => state.user)
+  const notify = () => toast(user ? `Hello ${user}!` : 'Hello Stranger!');
+  // const {isDialogOpen, setIsDialogOpen} = useAppContext();
   return (
     <>
       <Toaster 
@@ -21,7 +21,6 @@ function App() {
             padding: '10px',
             borderRadius:'0px',
             color: 'black',
-
             boxShadow: '4px 4px 0 0 rgb(0, 0, 0)'
           },
         }} 
@@ -49,7 +48,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-      <WelcomeModal isDialogOpen={isDialogOpen} setIsDialogOpen={setIsDialogOpen} />
+      <WelcomeModal  />
             
     </>
   )
